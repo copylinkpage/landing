@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Copy World Lotto & Lotto432 URL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html, body {
+            background: #f3f8fc;
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Prompt', 'Tahoma', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 430px;
+            margin: 44px auto 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px #a1c6f740, 0 0px 0px #000;
+            padding: 28px 18px 32px 18px;
+            text-align: center;
+        }
+        .title {
+            font-size: 1.45em;
+            color: #1161c7;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .info-text {
+            font-size: 1.09em;
+            margin-bottom: 14px;
+            color: #333;
+            font-weight: 400;
+        }
+        .copy-btn {
+            width: 100%;
+            max-width: 340px;
+            background: linear-gradient(90deg,#2196f3 40%,#57c7fd 100%);
+            color: #fff;
+            border: none;
+            padding: 15px 0;
+            font-size: 1.15em;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 9px #b8d2e766;
+            transition: background 0.15s;
+            margin-bottom: 17px;
+            font-weight: bold;
+        }
+        .copy-btn:last-child {
+            margin-bottom: 0;
+        }
+        .copy-btn:active, .copy-btn:focus {
+            background: linear-gradient(90deg,#1769aa 40%,#41addb 100%);
+            outline: none;
+        }
+        .copied-msg {
+            display: block;
+            color: #16b80c;
+            font-weight: 500;
+            margin-top: 10px;
+            font-size: 1.04em;
+            min-height: 22px;
+            transition: opacity 0.2s;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 12vw 3vw 0 3vw;
+                padding: 6vw 3vw 8vw 3vw;
+            }
+            .title { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            เลือก Copy ลิงค์ที่ต้องการ
+        </div>
+        <div class="info-text">
+            แตะปุ่มด้านล่างเพื่อคัดลอกลิงก์ <span style="color:#1769aa;">World Lotto</span>
+        </div>
+        <button class="copy-btn" onclick="copyUrl('hiddenUrl1', 'copiedMsg1')">กด Copy ลิ้งค์ World Lotto</button>
+        <span class="copied-msg" id="copiedMsg1"></span>
+        <input type="hidden" id="hiddenUrl1" value="https://www.wl9bet.com/register?ref=tPJDxVJRlLkHMYmzrx8RH4Uj01FrGGrnYMsb">
+
+        <div class="info-text" style="margin-top:32px;">
+            หรือคัดลอกลิงก์ <span style="color:#ff5a36;">Lotto432</span>
+        </div>
+        <button class="copy-btn" onclick="copyUrl('hiddenUrl2', 'copiedMsg2')">กด Copy ลิ้งค์ Lotto432</button>
+        <span class="copied-msg" id="copiedMsg2"></span>
+        <input type="hidden" id="hiddenUrl2" value="https://lotto432j.com/affliate/TFQ0MzIxMDQ4MjQ3Mg==">
+    </div>
+    <script>
+        function copyUrl(hiddenInputId, msgId) {
+            var url = document.getElementById(hiddenInputId).value;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(function() {
+                    showCopied(msgId);
+                });
+            } else {
+                var textarea = document.createElement("textarea");
+                textarea.value = url;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textarea);
+                showCopied(msgId);
+            }
+        }
+        function showCopied(msgId) {
+            var msg = document.getElementById(msgId);
+            msg.innerHTML = "คัดลอกแล้ว สามารถนำไปวางบน Chrome หรือ Browser ที่ต้องการได้เลย !";
+            msg.style.opacity = "1";
+            setTimeout(function(){
+                msg.innerHTML = "";
+                msg.style.opacity = "0";
+            }, 6300);
+        }
+    </script>
+</body>
+</html>
