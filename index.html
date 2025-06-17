@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>นาคา77 สุ่มเลขหวย</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #014d00;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header img {
+      width: 100%;
+      max-width: 1024px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    h2, h4, h3 {
+      color: #ffd700;
+      margin-top: 20px;
+    }
+    .frame {
+      border: 3px solid #ffcc00;
+      padding: 10px;
+      width: 160px;
+      height: 100px;
+      margin: 15px auto;
+      border-radius: 10px;
+      background-color: #fff;
+      color: #000;
+      font-size: 30px;
+      font-weight: bold;
+      display: none;
+    }
+    .meaning-box {
+      margin: 20px auto;
+      padding: 15px;
+      background-color: #fff;
+      color: #000;
+      border: 3px solid #ffcc00;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      display: none;
+    }
+    button {
+      padding: 15px 25px;
+      border-radius: 30px;
+      background-color: #ffd700;
+      color: #014d00;
+      font-size: 22px;
+      border: none;
+      cursor: pointer;
+      margin: 20px auto;
+      display: block;
+      font-weight: bold;
+    }
+    #resultContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    footer {
+      color: #ccc;
+      margin: 30px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://img2.pic.in.th/pic/eb38b1cca7633deae2075ce92096e913d4db67b1578de159.png" alt="ปกเว็บนาคา77" />
+  </header>
+  <h2>นาคา77</h2>
+  <h4>สุ่มเลขหวยออนไลน์</h4>
+  <button onclick="generateTwoDigits()">สุ่มเลข 2 ตัว</button>
+  <div id="resultContainer"></div>
+  <button onclick="generateSixDigits()">สุ่มเลข 6 ตัว</button>
+  <div id="sixDigitResult" class="frame"></div>
+  <hr style="margin: 40px auto; width: 80%; border-color: #ffd700;" />
+  <h3>สุ่มตัวเลขพร้อมความหมายปี 2568–2570</h3>
+  <button onclick="showMeaning()">สุ่มเลขพร้อมความหมาย</button>
+  <div id="meaningBox" class="meaning-box"></div>
+  <footer>
+    โปรดใช้วิจารณญาณในการใช้ นาคา77 สุ่มเลขหวย ขอให้ทุกคนโชคดี
+  </footer>
+  <script src="meanings.js"></script>
+  <script>
+    function generateTwoDigits() {
+      const container = document.getElementById('resultContainer');
+      container.innerHTML = '';
+      for (let i = 0; i < 3; i++) {
+        const number = Math.floor(Math.random() * 100).toString().padStart(2, '0');
+        const div = document.createElement('div');
+        div.className = 'frame';
+        div.textContent = number;
+        div.style.display = 'block';
+        container.appendChild(div);
+      }
+    }
+    function generateSixDigits() {
+      const result = document.getElementById('sixDigitResult');
+      const number = Math.floor(100000 + Math.random() * 900000);
+      result.textContent = number;
+      result.style.display = 'block';
+    }
+    function showMeaning() {
+      const number = Math.floor(Math.random() * 100);
+      const meaning = meanings[number] || "หมายเลขนี้ยังไม่มีความหมายในระบบ";
+      const box = document.getElementById('meaningBox');
+      box.innerHTML = `<h3>เลขที่ได้: ${number}</h3><p>${meaning}</p>`;
+      box.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
